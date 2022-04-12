@@ -28,7 +28,7 @@ public class SpectateCommand implements CommandExecutor {
                             Arena arena = GameAPI.get().getArenaByPlayer(target);
                             if (arena != null && target != p) {
                                 arena.addSpectator(p);
-                                p.sendMessage(ChatColor.GREEN + "You are now spectating " + ChatColor.YELLOW + "" + target.getDisplayName() + ".");
+                                p.sendMessage(ChatColor.GREEN + "You are now spectating " + ChatColor.YELLOW + "" + target.getDisplayName() + ChatColor.GREEN + "" + ".");
                             } else if (target == p){
                                 p.sendMessage(ChatColor.RED + "You cannot spectate yourself.");
                             } else {
