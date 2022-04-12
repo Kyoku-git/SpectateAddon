@@ -1,0 +1,14 @@
+name: SpectateAddon
+version: '${project.version}'
+main: cloud.kyoku.spectateaddon.SpectateAddon
+api-version: 1.18
+authors: [ Kyoku ]
+description: An addon for MBedwars that allows you to spectate specific players
+website: https://kyoku.cloud
+depend:
+  - MBedwars
+commands:
+  spectate:
+    description: Spectate a specific player's game in MBedwars
+    aliases:
+      - spec
