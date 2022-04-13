@@ -28,19 +28,23 @@ public class SpectateCommand implements CommandExecutor {
                             Arena arena = GameAPI.get().getArenaByPlayer(target);
                             if (arena != null && target != p) {
                                 arena.addSpectator(p);
-                                p.sendMessage(ChatColor.GREEN + "You are now spectating " + ChatColor.YELLOW + "" + target.getDisplayName() + ChatColor.GREEN + "" + ".");
+                                p.sendMessage(ChatColor.GREEN + "You are now spectating " + target.getDisplayName() + ".");
                             } else if (target == p){
                                 p.sendMessage(ChatColor.RED + "You cannot spectate yourself.");
                             } else {
                                 p.sendMessage(ChatColor.RED + "" + target.getDisplayName() + " is not in a game.");
                             }
-                        } else {
+                        } else if (p.hasPlayedBefore()) {
                         p.sendMessage(ChatColor.RED + args[0] + " is currently offline.");
+                        } else {
+                            p.sendMessage(ChatColor.RED + "Could not find player " + args[0]);
                         }
                     }
-                } else if (sender instanceof ConsoleCommandSender) {
-                    System.out.println("Only players can use this command!");
+                } else {
+                    p.sendMessage(ChatColor.RED + "You do not have permission to use that command!");
                 }
+                } else {
+                Bukkit.getLogger().warning("Only players can use that command.");
             }
 
         });
