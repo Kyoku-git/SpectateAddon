@@ -9,6 +9,10 @@ public final class SpectateAddon extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
 
+        // instance of bstats
+        int pluginId = 14920;
+        org.bstats.bukkit.Metrics metrics = new org.bstats.bukkit.Metrics(this, pluginId);
+
         // register spectate command
         getCommand("spectate").setExecutor(new SpectateCommand());
 
